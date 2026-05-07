@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+  <link rel="manifest" href="./manifest.json">
   <!-- skoop-live-prescript -->
   <!-- skoop-live-runtime -->
   <script src="./skoop-live.js"></script>
@@ -799,5 +800,14 @@
         document.addEventListener('DOMContentLoaded', () => App.init());
 
     </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./sw.js')
+          .then(function (reg) { console.log('[PWA] SW registered:', reg.scope); })
+          .catch(function (err) { console.warn('[PWA] SW registration failed:', err); });
+      });
+    }
+  </script>
 </body>
 </html>
