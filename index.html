@@ -728,6 +728,7 @@
                             <div class="task-meta">
                                 <span>Priority: ${task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}</span>
                                 ${task.dueDate ? `<span class="${overdue ? 'badge badge-overdue' : ''}">${overdue ? '⚠️ Overdue: ' : 'Due: '}${this.formatDate(task.dueDate)}</span>` : ''}
+                                <span>Created: ${this.formatDate(task.createdAt)}</span>
                             </div>
                         </div>
                         <div class="task-actions">
